@@ -1,0 +1,37 @@
+{
+
+    "AD": {
+        "host_name": "192.168.6.237",
+        "port": "389",
+        "protocol_version": "3",
+        "base_dn": "ou=ASEAN,OU=Plott Corporation,DC=plott,DC=local",
+        "upn_suffix": "plott.local",
+        "filter": "",
+        "get_name_attribute": "sn/givenname",
+        "get_kana_attribute": "",
+        "get_mail_attribute": "mail",
+        "search": [
+            "sAMAccountName",
+            "mail",
+            "displayname",
+            "telephoneNumber"
+        ]
+    },
+    "OL": {
+        "host_name": "192.168.20.199",
+        "port": "389",
+        "protocol_version": "3",
+        "rdn": "cn",
+        "base_dn": "ou=ASEAN,ou=Plott Corporation,dc=plott,dc=local",
+        "filter": "",
+        "get_name_attribute": "sn/givenname",
+        "get_kana_attribute": "",
+        "get_mail_attribute": "mail",
+        "search": [
+            "sAMAccountName",
+            "mail",
+            "displayname",
+            "telephoneNumber"
+        ]
+    }
+}

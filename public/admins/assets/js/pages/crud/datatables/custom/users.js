@@ -3,11 +3,11 @@ let info = " _TOTAL_ "+arrLanguage['account']+arrLanguage['out_of']+" _START_ "+
 let info_empty = " 0 "+arrLanguage['account']+arrLanguage['out_of']+" 0 "+arrLanguage['to']+" 0 "+' '+arrLanguage['show'];
 let infoFiltered = "( "+" _MAX_ "+arrLanguage['adverbs']+" "+arrLanguage['account']+arrLanguage['out_of']+" _TOTAL_ "+arrLanguage['found']+")";
 // var baseURL = "http://192.168.20.27/cong/public/";
-if(language == 'vi' || language == 'en'){
-     info = arrLanguage['show']+" _START_ "+arrLanguage['to']+" _END_ "+arrLanguage['out_of']+" _TOTAL_ "+arrLanguage['account'];
-    info_empty = arrLanguage['show']+" 0 "+arrLanguage['to']+" 0 "+arrLanguage['out_of']+" 0 "+arrLanguage['account'];
-    infoFiltered = "( "+arrLanguage['found']+" _TOTAL_ "+arrLanguage['out_of']+" _MAX_ "+arrLanguage['account']+")";
-}
+
+ info = arrLanguage['show']+" _START_ "+arrLanguage['to']+" _END_ "+arrLanguage['out_of']+" _TOTAL_ "+arrLanguage['account'];
+info_empty = arrLanguage['show']+" 0 "+arrLanguage['to']+" 0 "+arrLanguage['out_of']+" 0 "+arrLanguage['account'];
+infoFiltered = "( "+arrLanguage['found']+" _TOTAL_ "+arrLanguage['out_of']+" _MAX_ "+arrLanguage['account']+")";
+var baseURL = '/';
 
 var KTDatatablesAdvancedColumnRendering = function () {
 var stt = 1;
@@ -17,7 +17,7 @@ var stt = 1;
         table.DataTable({
             ajax: function (data, callback, settings) {
                 $.ajax({
-                    url: baseURL + 'user/get-all-json',
+                    url: '/user/get-all-json',
                     dataType: 'json',
                     dataSrc: '',
                     success: function (data) {
@@ -72,10 +72,10 @@ var stt = 1;
                         output = `
                                 <div class="d-flex align-items-center">
                                     <div class="symbol symbol-50 flex-shrink-0">
-                                        <img style="width:35px; height: 40px; object-fit: cover; " src="` +  `/files/photo/` + user_img + `" alt="photo">
+                                        <img style="width:35px; height: 40px; object-fit: cover; " src="` +  `/storage/avatar/` + user_img + `" alt="photo">
                                     </div>
                                     <div class="ml-3">
-                                        <a href="` + baseURL + `admin/users/info/` + data.id + `" class="text-dark-75 font-weight-bold line-height-sm d-block pb-2">` + data.fullname + `</a>
+                                        <a href="` + baseURL + `user/edit/` + data.id + `" class="text-dark-75 font-weight-bold line-height-sm d-block pb-2">` + data.fullname + `</a>
                                         <span href="#" class="text-muted text-hover-primary">` + data.username + `</span>
                                     </div>
                                 </div>`;
@@ -90,7 +90,7 @@ var stt = 1;
                     render: function (data, type, row) {
                         if(data.id != 150){
                             let html =  '\
-                                <a href="' + baseURL + 'admin/users/edit/'+ data.id +'" class="btn btn-sm btn-clean btn-icon btn-noti"  data-toggle="tooltip"  data-placement="top" title="'+arrLanguage['edit']+'">\
+                                <a href="' + baseURL + 'user/edit/'+ data.id +'" class="btn btn-sm btn-clean btn-icon btn-noti"  data-toggle="tooltip"  data-placement="top" title="'+arrLanguage['edit']+'">\
                                     <i class="la la-edit"></i>\
                                 </a>\ ';
 
@@ -201,20 +201,19 @@ function deleteUser(id){
 }
 
 $("#submitDel").on("click", function(){
-    const del = baseURL + "admin/users/delete/";
-    // window.location.href = del + id;
     let id = $('input[name="user-delete-id"]').val();
-    // console.log(id);
+    var delete_url = "/user/destroy/" + id;
+
     $.ajax({
-        url: del + id,
+        url: delete_url,
         dataType: 'json',
         dataSrc: '',
         success: function (data) {
             $("#deleteUser").modal("hide");
-            if(typeof data.Success !== 'undefined'){
-                $.notify(data.Success, {type: "success"});
+            if(data.status == 'success'){
+                $.notify('Xóa tài khoản thành công', {type: "success"});
             }else{
-                $.notify(data.Error, {type: "danger"});
+                $.notify('Xóa tài khoản thất bại', {type: "danger"});
             }
 
            return $('#users_datatable').DataTable().ajax.reload();

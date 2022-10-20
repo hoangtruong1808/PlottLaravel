@@ -1,0 +1,52 @@
+{
+  "ja": {
+    "E_COMMON_02": "情報の取得に失敗しました。",
+    "E_COMMON_01": "サーバへの接続に失敗しました。",
+    "E_COMMON_22": "認証に失敗しました。ID、パスワードが存在しないか、間違っている可能性があります。",
+    "E_TOP_01": "情報の更新に失敗しました。",
+    "E_TOP_02": "自動登録に失敗しました。",
+    "W_TOP_07": "IPアドレスによるログイン制限がかけられています。指定IPアドレス以外からの接続はできません。",
+    "E_COMMON_TYPE_LDAP": "LDAPタイプが無効です: ",
+    "I_SUCCESS": "成功しています。"
+  },
+  "en": {
+    "E_COMMON_02": "Obtaining information failed.",
+    "E_COMMON_01": "Connection to the server failed.",
+    "E_COMMON_22": "Authentication failed.ID, password may be missing or incorrect.",
+    "E_TOP_01": "Information update failed.",
+    "E_TOP_02": "Automatically registering ##D_USER## information failed.",
+    "W_TOP_07": "Login restrictions by IP address are imposed. A connection cannot be made from an address other than the specified IP address.",
+    "E_COMMON_TYPE_LDAP": "Invalid LDAP type: ",
+    "I_SUCCESS": "Successful."
+  },
+  "zh": {
+    "E_COMMON_02": "信息的获取失败。",
+    "E_COMMON_01": "连接服务器失败。",
+    "E_COMMON_22": "认证失败。ID，密码可能会丢失或不正确。",
+    "E_TOP_01": "信息的更新失败。",
+    "E_TOP_02": "的自动登记失败。",
+    "W_TOP_07": "登录因IP地址受到限制。无法从指定外的IP地址连接。",
+    "E_COMMON_TYPE_LDAP": "LDAP 類型無效: ",
+    "I_SUCCESS": "成功的。"
+  },
+  "ko": {
+    "E_COMMON_02": "정보 취득에 실패했습니다.",
+    "E_COMMON_01": "서버 접속에 실패했습니다.",
+    "E_COMMON_22": "인증에 실패했습니다.ID, 패스워드가 없거나 잘못되었을 수 있습니다.",
+    "E_TOP_01": "정보 갱신에 실패했습니다.",
+    "E_TOP_02": "의 자동 등록에 실패했습니다.",
+    "W_TOP_07": "IP 주소에 의한 로그인 제한이 설정돼 있습니다. 지정된 IP 주소 이외의 IP 주소에서는 접속할 수 없습니다.",
+    "E_COMMON_TYPE_LDAP": "LDAP 유형이 잘못되었습니다: ",
+    "I_SUCCESS": "성공적인."
+  },
+  "vi": {
+    "E_COMMON_02": "Lấy thông tin không thành công.",
+    "E_COMMON_01": "Kết nối đến máy chủ không thành công.",
+    "E_COMMON_22": "Xác thực không thành công. ID, mật khẩu có thể bị thiếu hoặc không chính xác.",
+    "E_TOP_01": "Không cập nhật được thông tin.",
+    "E_TOP_02": "Không đăng ký được tự động.",
+    "W_TOP_07": "Các hạn chế đăng nhập được áp dụng theo địa chỉ IP. Bạn chỉ có thể kết nối từ địa chỉ IP được chỉ định.",
+    "E_COMMON_TYPE_LDAP": "Loại LDAP không hợp lệ: ",
+    "I_SUCCESS": "Thành công."
+  }
+}

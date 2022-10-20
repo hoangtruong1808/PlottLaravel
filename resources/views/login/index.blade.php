@@ -27,6 +27,7 @@
     <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}" />
 </head>
 <body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+
 <div class="d-flex flex-column flex-root">
     <!--begin::Login-->
     <div class="login login-4 login-signin-on d-flex flex-row-fluid" id="kt_login">
@@ -43,26 +44,13 @@
                 <div class="login-signin">
                     <div class="mb-5">
                     </div>
-                    <form class="form" id="kt_login_signin_form" method="post" action="{{route('exec_login')}}">
+                    <form class="form" id="kt_login_signin_form" method="post" action="{{ route('exec_login') }}">
+                        @csrf()
                         <div class="form-group mb-5">
                             <input class="form-control h-auto form-control-solid py-4 px-8" type="text" placeholder="Tên đăng nhập" name="username" autocomplete="off" />
-{{--                            {if isset($errors['username'])}--}}
-{{--                            <div class="fv-plugins-message-container">--}}
-{{--                                <div data-field="username" class="fv-help-block">--}}
-{{--                                    {$errors['username']}--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            {/if}--}}
                         </div>
                         <div class="form-group mb-5">
                             <input class="form-control h-auto form-control-solid py-4 px-8" type="password" placeholder="Mật khẩu" name="password" />
-{{--                            {if isset($errors['password'])}--}}
-{{--                            <div class="fv-plugins-message-container">--}}
-{{--                                <div data-field="password" class="fv-help-block">--}}
-{{--                                    {$translate->_({$errors['password']})}--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            {/if}--}}
 
                         </div>
                         <div class="form-group mb-5">
@@ -131,14 +119,14 @@
 
                             </div>
                         </div>
-                        <button id="kt_login_signin_submit" class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-4">Đăng nhập</button>
-{{--                        {if isset($errors['login'])}--}}
-{{--                        <div class="fv-plugins-message-container">--}}
-{{--                            <div data-field="username" class="fv-help-block">--}}
-{{--                                {$translate->_({$errors['login']})}--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        {/if}--}}
+                        <button type="submit" id="kt_login_signin_submit" class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-4">Đăng nhập</button>
+                        @if ($errors->any())
+                            <div class="fv-plugins-message-container">
+                                @foreach ($errors->all() as $error)
+                                    <div data-field="username" class="fv-help-block">{{ $error }}</div>
+                                @endforeach
+                            </div>
+                        @endif
                     </form>
 
                 </div>
@@ -160,22 +148,11 @@
 <!--begin::Page Scripts(used by this page)-->
 <script src="{{asset('assets/js/pages/custom/login/login-custom.js')}}"></script>
 <!--end::Page Scripts-->
-
-{{--{if isset($Success)}--}}
-{{--<script>--}}
-{{--    const success = "{$translate->_($Success)}";--}}
-{{--    {literal}--}}
-{{--    $.notify(success, {type: "success"});--}}
-{{--</script>--}}
-{{--{/literal}--}}
-{{--{/if}--}}
-{{--{if isset($Errors)}--}}
-{{--<script>--}}
-{{--    const Errors = "{$translate->_($Errors)}";--}}
-{{--    {literal}--}}
-{{--    $.notify(Errors, {type: "danger"});--}}
-{{--</script>--}}
-{{--{/literal}--}}
-{{--{/if}--}}
+@if ($errors->any())
+    <script>
+        const Errors = "Không thành công";
+        $.notify(Errors, {type: "danger"});
+    </script>
+@endif
 </body>
 </html>

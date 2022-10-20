@@ -1,4 +1,4 @@
-var baseURL = 'http://192.168.20.27/cong/public/statistics/';
+var baseURL = '/statistics/';
 
 var getToDayMonth = document.querySelector('input[type="month"]');
 MyDate = new Date();

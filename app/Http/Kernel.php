@@ -63,5 +63,8 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'check_login' => \App\Http\Middleware\CheckLogin::class,
     ];
 }
+//33D 34C 35B 36C/A 37B 38A 39B 40C 41D 42A/D 43C/A 44C/D 45C 46D 47D/A 48(B) 49D/C 50C 51C/B 52D
+//53c 54B/A 55D 56B 57C 58C 59B 60C 61D 62A/B 63A 64A/C 65D/C 66

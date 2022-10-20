@@ -10,6 +10,7 @@
 var avatar = new KTImageInput('kt_user_add_avatar');
 
 $(document).ready(function() {
+    console.log('abc');
 	var _avatar;
 	var _formEl;
 	$("#kt_form").on("submit", function () {

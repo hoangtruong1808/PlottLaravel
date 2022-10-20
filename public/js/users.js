@@ -1,21 +1,6 @@
 // var baseURL = 'http://192.168.20.27/cong/public/';
 var selectedCount;
 
-function delUser(id) {
-    $("#deleteUser").modal("show");
-    $("#submitDel").on("click", function(){
-        del = baseURL + "user/delete/id/";
-        window.location.href = del + id;
-    });
-    return true;
-    // if (confirm('Bạn có muốn xóa không?')) {
-    //     // $del = "{"`$this->baseUrl($this->currentController)`/delete/id/"};
-    //     del = "/cong/public/user/delete/id/";
-    //     // console.log(del + id);
-    //     window.location.href = del + id;
-    // }
-    // return true;
-}
 
 function closeF() {
     document.getElementById("myForm").style.display = "none";
