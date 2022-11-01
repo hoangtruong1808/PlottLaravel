@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Library\TestFacade;
+use App\Library\TestFacadeClass;
 use App\Models\Role;
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\Gate;
@@ -15,6 +16,7 @@ use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
+use TestPackage;
 
 class UserController extends Controller
 {
@@ -214,7 +216,11 @@ class UserController extends Controller
     }
 
     public function testFacade() {
-        dd(TestFacade::demoFacadeMethod());
+        dd(TestPackage::demoFacadeMethod());
     }
+
+//Topic
+//Should Vietnam have more public holidays or longer holidays? Why? Give your opinion and
+//support it with reasons and examples taken from your reading, experience, or observations.
 
 }

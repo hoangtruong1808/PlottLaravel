@@ -6,9 +6,12 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "b-thanh/first-package": "dev-main",
         "barryvdh/laravel-debugbar": "^3.7",
         "doctrine/dbal": "^3.4",
         "guzzlehttp/guzzle": "^7.2",
+        "hoangtruong1808/filter-policy": "dev-hoangtruong1808",
+        "hoangtruong1808/test": "dev-hoangtruong1808",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
@@ -27,7 +30,9 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "Hoangtruong1808\\Test\\": "packages/hoangtruong1808/test/src",
+            "Policy\\": "packages/hoangtruong1808/FilterPolicy/src"
         }
     },
     "autoload-dev": {

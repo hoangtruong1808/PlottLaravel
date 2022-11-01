@@ -14,7 +14,6 @@ class DemoFacadeServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
     }
 
     /**
@@ -24,8 +23,6 @@ class DemoFacadeServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        App::bind('demofacade', function() {
-            return new \App\Library\TestFacadeClass;
-        });
+        $this->app->bind('demofacade1', \App\Library\TestFacadeClass::class);
     }
 }

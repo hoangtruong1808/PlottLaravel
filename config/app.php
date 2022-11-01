@@ -201,6 +201,9 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         App\Providers\DemoFacadeServiceProvider::class,
+        \Hoangtruong1808\Test\provider\TestServiceProvider::class,
+        \BThanh\FirstPackage\FirstPackageServiceProvider::class,
+        Policy\PolicyServiceProvider::class,
     ],
 
     /*
@@ -216,7 +219,9 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
-        'TestFacade' => App\Library\TestFacade::class,
+        'TestFacade1' => App\Library\TestFacade::class,
+        'TestPackage' => Hoangtruong1808\Test\TestFacade::class,
+        'FilterPolicy' => \Policy\PolicyFacade::class,
     ])->toArray(),
 
 ];

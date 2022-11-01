@@ -1,0 +1,17 @@
+{
+    "name": "hoangtruong1808/filter-policy",
+    "description": "Filter Policy Package of Hoang Truong",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Policy\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "hoangtruong",
+            "email": "hoangtruong1808@gmail.com"
+        }
+    ],
+    "require": {}
+}

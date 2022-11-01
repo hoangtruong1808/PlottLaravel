@@ -7,6 +7,9 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use DB;
+use Doctrine\DBAL\Query\QueryBuilder;
+
 
 class RouteServiceProvider extends ServiceProvider
 {

@@ -50,16 +50,6 @@ var stt = 1;
                 LoadingRecords: arrLanguage['loading']+"...",
             },
             columnDefs: [
-                // {
-                //     targets: 0,
-                //     searchable: false,
-                //     orderable: false,
-                //     render: function (data, type, row) {
-                //         const output = '<span>' + stt + '</span>';
-                //         console.log(stt++);
-                //         return output;
-                //     },
-                // },
                 {
                     targets: 0,
                     render: function (data, type, row) {
@@ -115,12 +105,9 @@ var stt = 1;
                     targets: 3,
                     render: function (data, type, row) {
                         var status = {
-                            // 0: {'title': arrStatus['inactive'], 'class': ' label-light-danger'},
                             1: {'title': arrStatus['active'], 'class': ' btn-light-success'},
                             2: {'title': arrStatus['inactive'], 'class': ' btn-light-danger'},
                         };
-                        // console.log(data);
-                        // return '<span class="label label-lg font-weight-bold' +  + ' label-inline">' + status[data.status].title + '</span>';
                         if(data.id == 150){
                             return '<button class="btn' + status[data.status].class + ' btn-sm font-weight-bold status">' + status[data.status].title + '</button>';
                         }
@@ -132,23 +119,10 @@ var stt = 1;
                     targets: [4,5],
                     type: 'date-eu',
                     render: function (data, type, row) {
-                        // return moment(new Date(data).toString()).format('DD/MM/YYYY');
                         return formatDate(data);
                     },
                     className: 'text-center',
                 }
-                // {
-                //     targets: 5,
-                //     render: function (data, type, row) {
-                //         return data;
-                //     },
-                // },
-                // {
-                //     targets: 6,
-                //     render: function (data, type, row) {
-                //         return data;
-                //     },
-                // },
             ],
             search: {
                 input: $('#kt_subheader_search_form'),
@@ -156,28 +130,9 @@ var stt = 1;
                 key: 'generalSearch'
             },
             "drawCallback": function (settings){
-                // console.log("brooo");
                 $(".btn-noti").tooltip();
             }
-            // order: [[1, 'asc']],
         });
-
-        // table.DataTable().on( 'order.dt search.dt', function () {
-        //     let i = 1;
-        //
-        //     table.DataTable().cells(null, 0, {search:'applied', order:'applied'}).every( function (cell) {
-        //         this.data(i++);
-        //     } );
-        // } ).draw();
-// $('#kt_datatable_search_status').on('change', function() {
-// datatable.search($(this).val().toLowerCase(), 'Status');
-// });
-//
-// $('#kt_datatable_search_type').on('change', function() {
-// datatable.search($(this).val().toLowerCase(), 'Type');
-// });
-//
-// $('#kt_datatable_search_status, #kt_datatable_search_type').selectpicker();
     };
 
     return {

@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TestFilterController;
+use App\Http\Controllers\TestPolicyController;
 use App\Http\Controllers\UserController;
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Support\Facades\Route;
@@ -41,9 +43,24 @@ Route::middleware('auth')->group(function(){
         Route::post('/get', [RoleController::class, 'update'])->name('role_update');
         Route::get('/destroy/{role_id}', [RoleController::class, 'destroy'])->name('role_destroy');
     });
+
+
+    Route::get('/test-filter', [TestFilterController::class, 'index']) -> name('test-filter');
+
+    Route::prefix('/policy')->group(function() {
+        Route::get('/check_file', [TestPolicyController::class, 'check_file_view'])->name('check_file_view');
+        Route::post('/check_file', [TestPolicyController::class, 'check_file'])->name('policy_check_file');
+        Route::get('/', [TestPolicyController::class, 'index'])->name('policy_show');
+        Route::get('/get-all-json', [TestPolicyController::class, 'getAllJson'])->name('policy_get_json');
+        Route::get('/create', [TestPolicyController::class, 'create'])->name('policy_create');
+        Route::post('/store', [TestPolicyController::class, 'store'])->name('policy_store');
+        Route::get('/edit/{policy_id}', [TestPolicyController::class, 'edit'])->name('policy_edit');
+        Route::post('/get', [TestPolicyController::class, 'update'])->name('policy_update');
+        Route::get('/update-rank', [TestPolicyController::class, 'updateRank'])->name('policy_update_rank');
+        Route::get('/destroy/{policy_id}', [TestPolicyController::class, 'destroy'])->name('policy_destroy');
+    });
+
 });
-
-
 
 
 

@@ -349,7 +349,6 @@
                 processData: false,
                 contentType: false,
                 success: function (data) {
-                    console.log(data);
                     if (data.status == 'success') {
                         $('#kt_modal_role').modal('hide');
                         location.reload();
